@@ -1,0 +1,111 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/664e282a54.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    @RenderSection("Scripts", required: false);
+
+</head>
+<body>
+    <div style=" text-align: center;" class="containterr">
+        <div class="logo">
+            <img src="~/img/h2-logo-1 (1).png" alt="">
+        </div>
+        <div class="nav-barr">
+            <div class="narbar-item">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="narbar-item grid2">
+                <div class="grid2item">
+                    <a asp-controller="Home" asp-action="Index">Trang chủ</a>
+                </div>
+                <div class="grid2item">
+                    <a asp-controller="Product" asp-action="Index">Hoa</a>
+
+                </div>
+                <div class="grid2item dropdownn relati">
+                    <a href="">Tìm hiểu</a>
+                    <div class="dropdowntable">
+                        <a asp-controller="About" asp-action="Index">Về chúng tôi</a>
+                        <a asp-controller="About" asp-action="flowermeaning">Về hoa</a>
+                        <a asp-controller="About" asp-action="promotion">Khuyến mãi</a>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="narbar-item grid3">
+                <div><a style="text-decoration:none;color:black" asp-controller="Product" asp-action="Cart">
+                    Giỏ hàng
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    @await Html.PartialAsync("_CartPartial")
+                    </a>
+                </div><div>
+                    <i class="fa-solid fa-user"></i>
+                    <a style="text-decoration:none;color:black" asp-controller="Account" asp-action="Login">Tài khoản</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height:80px"></div>
+
+    @RenderBody()
+    <div class="containerr">
+        <div class="footeer">
+            <div class="margin-aoto">
+                SHOP HOA TP. HCM <br>
+                Địa chỉ: <br>
+
+                - 230B Võ Thị Sáu, P. Võ Thị Sáu, Quận 3<br>
+
+                - 270L Võ Thị Sáu, P.Võ Thị Sáu, Quận 3 <br>
+
+                - 17D Nguyễn Thái Học, P. Cầu Ông Lãnh, Quận 1<br>
+
+                Điện thoại: 028 7300 2010<br>
+
+                Miễn phí giao hoa nội thành Tp. Hồ Chí Minh. Các quận ngoại thành vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ).
+            </div>
+            <div class="margin-aoto">
+                SHOP HOA HÀ NỘI <br>
+                Địa chỉ: <br>
+                -532A Đường Láng, Quận Đống Đa <br>
+                -532A Đường Láng, Quận Đống Đa <br>
+                -532A Đường Láng, Quận Đống Đa <br>
+
+                Điện thoại: 024 7300 2010 <br>
+
+                Miễn phí giao hoa nội thành Hà Nội. Các quận ngoại thành vui lòng liên hệ để biết thêm chi tiết (Giá giao sẽ từ 30.000đ-70.000đ).
+            </div>
+            <div class="margin-aoto">
+                VĂN PHÒNG ĐIỀU HÀNH <br>
+                Công ty Cổ Phần Color Life <br>
+
+                Địa chỉ: 270F Võ Thị Sáu, P.7, Q. 3, Tp. Hồ Chí Minh <br>
+
+                MST: 0313230072 cấp lần đầu ngày 25/04/2015 bởi Sở kế hoạch đầu tư Thành phố Hồ Chí Minh <br>
+
+                Email: contact@hoayeuthuong.com <br>
+
+                Điện thoại: 028 7300 2010 - 024 7300 2010 (24/7) <br>
+                <img src="img/da-thong-bao.png" alt="">
+            </div>
+            <div class="margin-aoto">
+                Liên hệ với chúng tôi qua:  <br>
+                <i style="font-size: 3rem;line-height: 80px;" class="fa-brands fa-facebook"></i><span style="font-size: 3rem;">Facebook</span> <br>
+                <i style="font-size: 3rem;line-height: 80px;" class="fa-brands fa-instagram"></i> <span style="font-size: 3rem;">Instagram </span><br>
+                <i style="font-size: 3rem;line-height: 80px;" class="fa-solid fa-envelope"></i><span style="font-size: 3rem;">Email</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Hồ sơ";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<div class="containterr relati">
+    <div class="background"></div>
+    <div class="text-product">
+        <h1 style="font-family: 'Oswald', sans-serif;">Hồ sơ tài khoản</h1>
+
+    </div>
+</div>
+<div class="h-50"></div>
+<div class="containterr">
+    <div class="profile">
+        <div class="pro5menu">
+            <table>
+                <tr>
+                    <th>Tài khoản</th>
+                </tr>
+                <tr>
+                    <td onclick="showtttk()">Thông tin tài khoản</td>
+                </tr>
+                <tr><td onclick="showpanelmk()">Đổi mật khẩu</td></tr>
+                <tr><td onclick="showorder()">Xem lại đơn hàng</td></tr>
+                <tr><td>Đăng xuất</td></tr>
+            </table>
+        </div>
+        <div class="pro5panel relati">
+            <form id="thongtincanhan" action="">
+                <div class="ttlabel">
+                    <label for="">Họ và tên: </label><br>
+                    <label for="">Sinh nhật: </label><br>
+                    <label for="">Địa chỉ: </label><br>
+                    <label for="">Số điện thoại: </label>
+                </div>
+                <div class="ttinput">
+                    <input type="text">
+                    <input type="text">
+                    <input type="text">
+                    <input type="text"><button type="submit"> Lưu</button>
+                </div>
+
+            </form>
+            <form id="doimatkhau" action="">
+                <div class="ttlabel">
+                    <label  for="">Mật khẩu cũ: </label><br>
+                    <label  for="">Mật khẩu mới: </label><br>
+                    
+
+                </div>
+                <div class="ttinput">
+                    <input id="pword1" type="password">
+                    <input id="pword2" type="password">
+                    <span id="a3" style="display:none"></span>
+
+                    <i style="cursor: pointer;" onclick="showpass()" class="fa-solid fa-eye"></i>
+                    <button type="submit"> Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById("pword2").addEventListener("change", myFunction);
+    function myFunction() {
+        var e1 = document.getElementById('pword1').value;
+        var e2 = document.getElementById('pword2').value;
+        var e3 = document.getElementById('a3');
+        if (e1 === e2) {
+            e3.style.display = "block"
+            e3.style.color="green"
+            e3.innerHTML = "Mật khẩu trùng nhau"
+            
+        }
+        else if (e1 != e2) {
+            e3.style.display = "block"
+            e3.style.color="red"
+            e3.innerHTML = "Mật khẩu không trùng"
+           
+        }
+    }
+    function showtttk() {
+        var x = document.getElementById("thongtincanhan");
+        var y = document.getElementById('doimatkhau');
+        var z = document.getElementById('orderr');
+        x.style.visibility = "visible";
+        y.style.visibility = "hidden";
+        z.style.visibility = "hidden";
+    }
+    function showpanelmk() {
+        var x = document.getElementById("thongtincanhan");
+        var y = document.getElementById('doimatkhau');
+        var z = document.getElementById('orderr');
+        x.style.visibility = "hidden";
+        y.style.visibility = "visible";
+        z.style.visibility = "hidden";
+    }
+    function showorder() {
+        var x = document.getElementById("thongtincanhan");
+        var y = document.getElementById('doimatkhau');
+        var z = document.getElementById('orderr');
+        x.style.visibility = "hidden";
+        y.style.visibility = "hidden";
+        z.style.visibility = "visible";
+    }
+    function showpass() {
+        var x = document.getElementById("pword1");
+        var y = document.getElementById("pword2");
+
+        if (x.type === "password") {
+            x.type = "text";
+            y.type = "text";
+
+        } else {
+            x.type = "password";
+            y.type = "password";
+
+        }
+    }
+</script>

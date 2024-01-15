@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Đăng nhập ";
+    Layout = null;
+
+}
+@model Customer
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<div class="containerr">
+    <div class="saiup">
+        <div class="saiuplep">
+            <img src="~/img/login2.PNG" style="border-radius: 15px;width: 100%;overflow: hidden;height: 500px;object-fit: fill;" alt="">
+        </div>
+        <div class="saiuprai">
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+            {
+                
+           
+            <h1 style="font-family: 'Oswald', sans-serif;">Đăng nhập</h1>
+            @Html.TextBoxFor(x=>x.CustomerUsername,new{@class="saiupraiinput",placeholder="Username",required="required",autofocus="autofocus"})
+            @Html.TextBoxFor(x => x.CustomerPassword, new { @class = "saiupraiinput", placeholder = "Password",type="password" })
+            
+            
+            <button style="cursor:pointer" type="submit">ĐĂNG NHẬP</button>
+                <br>
+            }
+            tài khoản:trongbui123 - mật khẩu:123456
+            <a asp-controller="Account" asp-action="Signup">Chưa có tài khoản? Nhấn để đăng kí</a>
+        </div>
+    </div>
+</div>

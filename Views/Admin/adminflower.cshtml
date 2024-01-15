@@ -1,0 +1,50 @@
+﻿@using X.PagedList.Mvc.Core;
+@using WebApplication3.Models;
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "adminflower";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div style="margin-top:100px;margin-left:100px">
+    <p>
+        <a asp-action="addflower">Create New</a>
+        
+    </p>
+
+    <div style="display:grid;
+grid-template-columns:1fr 1fr 1fr 3fr  1fr 1fr 1fr;" class="grit-cver">
+        @model X.PagedList.IPagedList<Flower>
+        <p>Mã hoa</p>
+        <p>Mã loại</p>
+        <p>Tên hoa</p>
+        <p>Mô tả</p>
+        <p>Giá bán</p>
+        <p>Tồn kho</p>
+        <p>Thao tác</p>
+        @foreach (var item in Model)
+        {
+            <p> @Html.DisplayFor(modelItem => item.FlowerId)</p>
+            <p> @Html.DisplayFor(modelItem => item.KindId)</p>
+            <p> @Html.DisplayFor(modelItem => item.Fname)</p>
+            <p> @Html.DisplayFor(modelItem => item.Fdescribe)</p>
+            <p> @Html.DisplayFor(modelItem => item.Fprice)</p>
+            <p> @Html.DisplayFor(modelItem => item.Fstock)</p>
+            <p>
+
+                <a asp-action="Editflower" asp-route-id="@item.FlowerId">Edit</a> |
+                
+                <a asp-action="Deleteflower" asp-route-id="@item.FlowerId">Delete</a>
+
+            </p>
+        }
+    </div>
+
+    <div style="display:block" class="page-nav">
+        @Html.PagedListPager(Model, page => Url.Action("adminflower", new { page = page }))
+    </div>
+
+</div>
+
+

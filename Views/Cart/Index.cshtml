@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Giỏ hàng ";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<div class="containterr relati">
+    <div class="background"></div>
+    <div class="text-product">
+        <h1 style="font-family: 'Oswald', sans-serif;">Giỏ hàng</h1>
+        <p style="font-family: 'Oswald', sans-serif;">Hoa đẹp - rẻ - ý nghĩa</p>
+    </div>
+    <div style="height: 50px;display: block;"></div>
+</div>
+<div class="containerr">
+    <div class="cart-panel">
+        <table style="width: 100%;">
+            <tr>
+                <th style="width: 15%;"></th>
+                <th style="width: 25%;text-align: left ;">Tên sản phẩm</th>
+                <th style="width: 10%;">Giá</th>
+                <th style="width: 35%;text-align: left;">Số lượng</th>
+                <th style="width: 15%;text-align: left;">Tổng cộng</th>
+            </tr>
+            <tr>
+                <td style="height: 200px;"><img style="height: 100%;" src="img/hoa12.jpg" alt=""></td>
+                <td>Tên hoa</td>
+                <td><input style="border: none;background-color: transparent;text-align: center;" id="giasp" type="text" readonly value="100000"></td>
+                <td>
+                    <div style="cursor: pointer;display: inline;margin-right: 10px;" id="decrement-count">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </div>
+                    <div style="display: inline;margin-right: 10px;" id="total-count">
+                        <input style="height: 40px;text-align: center;" id="soluongsp" type="text" value="1">
+                    </div>
+                    <div class="abc" style="cursor: pointer;display: inline;margin-right: 10px;" id="increment-count">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </div>
+                </td>
+                <td id="subtotal" style="text-align: left;"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="containerr">
+    <div style="height: 50px;"></div>
+    <input type="text" placeholder="Mã giảm giá" style="height: 40px;">
+    <button style="cursor: pointer;font-weight:bold;height: 50px;width: 150px;background-color: black;color: white;font-family: 'Montserrat', sans-serif;">Áp dụng  </button>
+
+    <h2 style="font-family: 'Lora', serif;">Đơn hàng</h2>
+    <table>
+        <tr>
+            <td><h4 style="display: inline;margin-right: 20px;">Tổng cộng</h4></td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td> <h4 style="display: inline;margin-right: 20px;">Người nhận</h4></td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td><h4 style="display: inline;margin-right: 20px;">Địa chỉ nhận</h4></td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td><h4 style="display: inline;margin-right: 20px;">Số điện thoại</h4></td>
+            <td><input type="text"></td>
+        </tr>
+    </table>
+    <button>Giao hàng</button>
+</div>
+
+<script>
+    const giasp = parseInt(document.getElementById('giasp').value);
+    const tangsp = document.getElementById('increment-count');
+    const giamsp = document.getElementById('decrement-count');
+    var x = parseInt(document.getElementById('soluongsp').value);
+    document.getElementById('subtotal').innerHTML = x * giasp;
+
+    const tangsl = () => {
+        x++;
+        document.getElementById('soluongsp').value = x;
+        document.getElementById('subtotal').innerHTML = x * giasp;
+    }
+    const giamsl = () => {
+        x--;
+        document.getElementById('soluongsp').value = x;
+        document.getElementById('subtotal').innerHTML = x * giasp;
+    }
+    tangsp.addEventListener("click", tangsl);
+    giamsp.addEventListener("click", giamsl);
+</script>

@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Sản phẩm";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+} @using X.PagedList.Mvc.Core;
+<div style="height:50px"></div>
+<div class="containterr relati">
+    <div class="background"></div>
+    <div class="text-product">
+        <h1 style="font-family: 'Oswald', sans-serif;">Danh sách sản phẩm</h1>
+        <p style="font-family: 'Oswald', sans-serif;">Hoa đẹp - rẻ - ý nghĩa</p>
+    </div>
+</div>
+<hr>
+<div class="product-main">
+    <div class="pro-main-cate">
+        <h2>Danh mục hoa </h2>
+        <p> <a asp-controller="Product" asp-route-catid="1" asp-action="CatoListItem">Hoa sinh nhật</a> </p>
+        <p> <a asp-controller="Product" asp-route-catid="2" asp-action="CatoListItem">Hoa khai trương</a></p>
+        <p><a asp-controller="Product" asp-route-catid="3" asp-action="CatoListItem">Hoa cảm ơn</a></p>
+        <p>
+            <a asp-controller="Product" asp-route-catid="6" asp-action="CatoListItem">Hoa chia buồn</a>
+        </p>
+
+        <p>
+            <a asp-controller="Product" asp-route-catid="4" asp-action="CatoListItem">Hoa tình yêu</a>
+        </p>
+        <p> <a asp-controller="Product" asp-route-catid="5" asp-action="CatoListItem">Hoa sức khỏe</a></p>
+        <p> <a asp-controller="Product" asp-route-catid="7" asp-action="CatoListItem">Hoa chúc mừng</a></p>
+    </div>
+    <div class="pro-main-content">
+        <select>
+            <option value="">Giá tăng dần</option>
+            <option value="">Giá giảm dần</option>
+        </select>
+        <div class="pro-main-list">
+            @model X.PagedList.IPagedList<Flower>
+            @foreach (var item in Model)
+            {
+                <div class="pro-list-item">
+
+                    <a asp-controller="Product" asp-action="itemDetailed" asp-route-id="@item.FlowerId"><img src="../img/@item.Fimg" alt=""></a>
+                    <h1> <a asp-controller="Product" asp-action="itemDetailed" asp-route-id="@item.FlowerId">@item.Fname</a></h1>
+                    <p>Giá: @item.Fprice</p>
+                    <button>Thêm vào giỏ hàng</button>
+
+                    <hr />
+                </div>
+            }
+
+
+        </div><div class="page-nav">
+            @Html.PagedListPager(Model, page => Url.Action("CatoListItem", new { page = page, catid = ViewBag.catid }))
+        </div>
+    </div>
+
+
+</div>
+

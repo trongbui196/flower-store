@@ -1,0 +1,147 @@
+﻿@model WebApplication3.Models.Flower
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+@* <h1>itemDetailed</h1>
+
+<div>
+    <h4>Flower</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fprice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fprice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fdescribe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fdescribe)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fimg)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fimg)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fstock)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fstock)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Kind)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Kind.KindId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.FlowerId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+ *@
+<div class="containterr relati">
+    <div class="background"></div>
+
+    <div class="text-product">
+        <h1 style="font-family: 'Oswald', sans-serif;">Chi tiết sản phẩm</h1>
+        <p style="font-family: 'Oswald', sans-serif;">Hoa đẹp - rẻ - ý nghĩa</p>
+    </div>
+    <div style="height: 50px;display: block;"></div>
+</div>
+<div style="height: 50px;"></div>
+<div class="containterr">
+    <div class="detail-pro">
+        <div class="detail-img">
+            <div class="details-img">
+                <img src="../../img/@Html.DisplayFor(model=>model.Fimg)" alt="">
+            </div>
+            <div class="details-img">
+                <img src="../../img/@Html.DisplayFor(model=>model.Fimg)" alt="">
+            </div>
+            <div class="details-img">
+                <img src="../../img/@Html.DisplayFor(model=>model.Fimg)" alt="">
+            </div>
+            <div class="details-img">
+                <img src="../../img/@Html.DisplayFor(model=>model.Fimg)" alt="">
+            </div>
+        </div>
+        <div class="detail-right-panel">
+            <h1>@Html.DisplayFor(model => model.Fname)</h1>
+            <p>@Html.DisplayFor(model => model.Fdescribe)</p>
+            <p>Giá : @Html.DisplayFor(model => model.Fprice)</p>
+            <hr>
+            <div style="display: inline;margin-right: 10px;" id="decrement-count">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </div>
+            <div style="display: inline;margin-right: 10px;border-bottom: 1px solid black;" id="total-count">
+            </div>
+            <div style="display: inline;margin-right: 10px;" id="increment-count">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </div>
+            <button style="cursor: pointer;font-weight:bold;height: 50px;width: 150px;background-color: black;color: white;font-family: 'Montserrat', sans-serif;">Thêm vào giỏ</button>
+            <div class="rightpanel1">
+                ✅ MIỄN PHÍ BANNER, THIỆP trị giá 20.000đ <br>
+                ✅ Giảm 5% cho lần mua thứ 5 trở đi <br>
+                ✅ Giảm 7% cho lần mua thứ 7 <br>
+                ✅ Giảm 10% cho lần mua thứ 10 trở đi <br>
+                ✅ Gửi hình trước khi giao, cam kết hài lòng 100% <br>
+                ✅ Cam kết hoa tươi trên 3 ngày <br>
+                ✅ Sản phẩm tại Tphcm & Hà Nội có thể đạt 95%-98%, sản phẩm tại các tỉnh thành khác có thể đạt 90%-95% (do sản phẩm được làm thủ công và đặc điểm theo mùa của hàng nông nghiệp)
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="containerr">
+    <div style="min-height: 50px;"></div>
+</div>
+<hr>
+
+
+
+<script>
+    // Select increment and decrement buttons
+    const incrementCount = document.getElementById("increment-count");
+    const decrementCount = document.getElementById("decrement-count");
+
+    // Select total count
+    const totalCount = document.getElementById("total-count");
+
+    // Variable to track count
+    var count = 1;
+
+    // Display initial count value
+    totalCount.innerHTML = count;
+
+    // Function to increment count
+    const handleIncrement = () => {
+        count++;
+        totalCount.innerHTML = count;
+    };
+
+    // Function to decrement count
+    const handleDecrement = () => {
+        count--;
+        totalCount.innerHTML = count;
+    };
+
+    // Add click event to buttons
+    incrementCount.addEventListener("click", handleIncrement);
+    decrementCount.addEventListener("click", handleDecrement);
+</script>

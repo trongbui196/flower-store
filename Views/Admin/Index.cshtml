@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Đăng nhập quản trị ";
+
+}
+@model Adminn
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://kit.fontawesome.com/664e282a54.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+</head>
+<body>
+
+    <div class="containerr">
+        <div class="adminlog">
+            <div class="adl">
+                <img src="img/adminlogin.jpg" style="width: 100%;height: 225px;object-fit: fill;" alt="">
+            </div> @using (Html.BeginForm("Dashboard", "Admin", FormMethod.Post))
+            {
+            <div class="adl lgin">
+                <div class="lgin-input">
+                    
+                   
+
+
+                        <h1 style="font-family: 'Oswald', sans-serif;">Đăng nhập</h1>
+                        @Html.TextBoxFor(x => x.AdminUsername, new { @class = "saiupraiinput", placeholder = "Username", required = "required", autofocus = "autofocus" })
+                        @Html.TextBoxFor(x => x.AdminPassword, new { @class = "saiupraiinput", placeholder = "Password", type = "password" })
+                        </div>
+                <div class="lgin-btn">
+                    <button type="submit">Đăng nhập</button>
+                </div>
+            </div>}
+            Username: trongbui196 - Password: 12345
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@using WebApplication3.Models;
+@using X.PagedList.Mvc.Core;
+@model X.PagedList.IPagedList<Customer>
+@{
+    ViewData["Title"] = "Quản trị khách hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<div style="margin-top:100px;margin-left:100px">
+    <p>
+        <a asp-action="addcustomer">Create New</a>
+    </p>
+
+    <div style="display:grid;
+grid-template-columns:1fr 1fr 1fr 3fr  1fr 1fr 1fr ;" class="grit-cver">
+        
+        <p>Mã khách hàng</p>
+        <p>Tên tài khoản</p>
+        <p>Họ và tên</p>
+        <p>Địa chỉ </p>
+        <p>Số điện thoại</p>
+        <p>Ngày sinh</p>
+        <p>Thao tác</p>
+        @foreach (var item in Model)
+        {
+            <p> @Html.DisplayFor(modelItem => item.CustomerId)</p>
+            <p> @Html.DisplayFor(modelItem => item.CustomerUsername)</p>
+            <p> @Html.DisplayFor(modelItem => item.CustomerLastname) @Html.DisplayFor(modelItem => item.CustomerSurname)</p>
+            <p> @Html.DisplayFor(modelItem => item.CustomerAddress)</p>
+            <p> @Html.DisplayFor(modelItem => item.CustomerPhone)</p>
+            <p> @Html.DisplayFor(modelItem => item.CustomeBday)</p>
+
+            <p>
+
+                <a asp-action="Editcustomer" asp-route-idsp="@item.CustomerId">Edit</a> |
+               
+                <a asp-action="delcustomer" asp-route-id="@item.CustomerId">Delete</a>
+
+            </p>
+        }
+    </div>
+
+    @* <div style="display:block" class="page-nav"> *@
+        @Html.PagedListPager(Model, page => Url.Action("admincustomer", new { page = page }),new X.PagedList.Web.Common.PagedListRenderOptions(){LiElementClasses=new List<String>{"page-item"},PageClasses=new List<String>{"page-link"}})
+    @* </div> *@
+
+</div>
+
+
